@@ -1,12 +1,26 @@
-import { createContext, useContext, useEffect } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import axios from "axios";
+import reducer from "../reducer/productReducer";
+
 // /được sử dụng để tạo một Context mới
 // /Đây là nơi bạn sẽ lưu trữ dữ liệu bạn muốn chia sẻ trong ứng dụng của bạn.  
 const AppContext = createContext();
 
 const API = "https://api.pujakaitem.com/api/products";
 
+const initialState = {
+  isLoading: false,
+  isError: false,
+  products: [],
+  featureProducts: [],
+};
+
 const AppProvider = ({ children }) => {
+  //useReducer để quản lý trạng thái của ứng dụng dựa trên reducer từ productReducer.js
+  //initialState định nghĩa trạng thái ban đầu của ứng dụng sẽ được quản lý bởi reducer.
+  //useReducer để tạo ra trạng thái và dispatcher (state và dispatch), với trạng thái ban đầu từ initialState.                                  
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   //hàm getProducts để thực hiện gọi API bất đồng bộ
   const getProducts = async (url) => {
     ///Hàm dispatch được sử dụng để gửi các hành động đến reducer

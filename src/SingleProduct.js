@@ -1,11 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+
 const SingleProduct = () => {
-  return (
-    <Wrapper>
-      {/* Your JSX content here */}
-    </Wrapper>
-  );
+  return <h1>single page </h1>;
 };
 
 const Wrapper = styled.section`
