@@ -14,6 +14,7 @@ const initialState = {
   products: [],
   featureProducts: [],
   isSingleLoading: false,
+
   singleProduct : {},
 };
 
@@ -35,7 +36,7 @@ const AppProvider = ({ children }) => {
       //dữ liệu sản phẩm được lấy từ phản hồi của API (res.data) và được gán vào biến products.
       const products = await res.data;
       dispatch({ type: "SET_API_DATA", payload: products });
-      // //console.log để in dữ liệu products ra trong cửa sổ console. 
+      //console.log để in dữ liệu products ra trong cửa sổ console. 
       
     
     } catch (error) {
@@ -62,6 +63,17 @@ const AppProvider = ({ children }) => {
     //Điều này đảm bảo rằng gọi API xảy ra khi thành phần được gắn kết lần đầu tiên.
     getProducts(API);
   }, []);
+
+  const getSingleProduct = async (url) => {
+    dispatch({ type: "SET_SINGLE_LOADING" });
+    try {
+      const res = await axios.get(url);
+      const singleProduct = await res.data;
+      dispatch({ type: "SET_SINGLE_PRODUCT", payload: singleProduct });
+    } catch (error) {
+      dispatch({ type: "SET_SINGLE_ERROR" });
+    }
+  };
 
   return (
         //sử dụng <AppContext.Provider> để bọc các thành phần con với dữ liệu bạn muốn chia sẻ. 
