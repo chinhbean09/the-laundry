@@ -1,4 +1,5 @@
 const ProductReducer = (state, action) => {
+  //state được quản lý bởi reducer và cập nhật thông qua các hành động gửi đến reducer
   // if (action.type === "SET_LOADING") {
   //   return {
   //     ...state,
@@ -13,6 +14,8 @@ const ProductReducer = (state, action) => {
   //     isError: true,
   //   };
   // }
+//là khi các thuộc tính ở  trong hành động thay đổi thì nó sẽ được lưu vào state
+
 
   switch (action.type) {
     case "SET_LOADING":
