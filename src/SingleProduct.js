@@ -1,6 +1,6 @@
-
 import { useEffect } from "react";
 import styled from "styled-components";
+import { useParams } from "react-router-dom";
 import { useProductContext } from "./context/productcontex";
 import PageNavigation from "./components/PageNavigation";
 import MyImage from "./components/MyImage";
@@ -10,24 +10,16 @@ import { MdSecurity } from "react-icons/md";
 import { TbTruckDelivery, TbReplace } from "react-icons/tb";
 import Star from "./components/Star";
 import AddToCart from "./components/AddToCart";
-import styled from "styled-components";
-import { useParams } from "react-router-dom";
-
 
 const API = "https://api.pujakaitem.com/api/products";
 
 const SingleProduct = () => {
-  const { getSingleProduct, isSingleLoading, singleProduct } = 
-  useProductContext(); //hook tùy chỉnh trả về một đối tượng chứa các giá trị và hàm quản lý sản phẩm.
+  const { getSingleProduct, isSingleLoading, singleProduct } =
+    useProductContext();
+
   const { id } = useParams();
 
-  // console.log(
-  //   "~ file: SingleProduct.js ~ line10 ~ SingleProduct ~ singleProduct", 
-  //   singleProduct
-  // );
-  // console.log("~file: SingleProduct.js ~ line 6 ~ SingleProduct ~id", id)
-  //destructuring trong JavaScript để trích xuất các thuộc tính từ đối tượng singleProduct thành các biến độc lập
-const {
+  const {
     id: alias,
     name,
     company,
@@ -39,13 +31,6 @@ const {
     reviews,
     image,
   } = singleProduct;
-
-  useEffect(() => { getSingleProduct(`${API}?id=${id}`);
-  }, []);
-
-  return <h1>single page {name}</h1>;
-
-};
 
   useEffect(() => {
     getSingleProduct(`${API}?id=${id}`);
@@ -120,7 +105,8 @@ const {
         </div>
       </Container>
     </Wrapper>
-  );  
+  );
+};
 
 const Wrapper = styled.section`
   .container {
