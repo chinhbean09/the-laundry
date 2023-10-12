@@ -14,7 +14,8 @@ const initialState = {
   products: [],
   featureProducts: [],
   isSingleLoading: false,
-  singleProduct: {},
+
+  singleProduct : {},
 };
 
 const AppProvider = ({ children }) => {
@@ -43,6 +44,20 @@ const AppProvider = ({ children }) => {
     }
   };
 
+    //API FOR SINGLE PRODUCT 
+    const getSingleProduct = async (url) => {
+      dispatch({ type: "SET_SINGLE_LOADING" });
+      try{
+        const res = await axios.get(url);
+        const singleProduct = await res.data;
+        dispatch({ type: "SET_SINGLE_PRODUCT", payload: singleProduct });
+      }catch(error){
+        dispatch({ type: "SET_SINGLE_ERROR" });
+      }
+
+    }
+
+
   //gọi hàm getProducts khi AppProvider được tạo.
   useEffect(() => {
     //Điều này đảm bảo rằng gọi API xảy ra khi thành phần được gắn kết lần đầu tiên.
@@ -62,10 +77,7 @@ const AppProvider = ({ children }) => {
 
   return (
         //sử dụng <AppContext.Provider> để bọc các thành phần con với dữ liệu bạn muốn chia sẻ. 
-        // <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
-        <AppContext.Provider value={{ ...state, getSingleProduct }}>
-      {children}
-    </AppContext.Provider>
+        <AppContext.Provider value={{ ...state, getSingleProduct }}>{children}</AppContext.Provider>
         );
 };
 
