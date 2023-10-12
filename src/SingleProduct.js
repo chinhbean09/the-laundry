@@ -1,8 +1,37 @@
-import React from "react";
 import styled from "styled-components";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useProductContext } from "./context/productcontex";
+
+const API = "https://api.pujakaitem.com/api/products";
 
 const SingleProduct = () => {
-  return <h1>single page </h1>;
+  const { getSingleProduct, isSingleLoading, singleProduct } = 
+  useProductContext(); //hook tùy chỉnh trả về một đối tượng chứa các giá trị và hàm quản lý sản phẩm.
+  const { id } = useParams();
+
+  // console.log(
+  //   "~ file: SingleProduct.js ~ line10 ~ SingleProduct ~ singleProduct", 
+  //   singleProduct
+  // );
+  // console.log("~file: SingleProduct.js ~ line 6 ~ SingleProduct ~id", id)
+  //destructuring trong JavaScript để trích xuất các thuộc tính từ đối tượng singleProduct thành các biến độc lập
+const {
+    id: alias,
+    name,
+    company,
+    price,
+    description,
+    category,
+    stock,
+    stars,
+    reviews,
+  } = singleProduct;
+
+  useEffect(() => { getSingleProduct(`${API}?id=${id}`);
+  }, []);
+
+  return <h1>single page {name}</h1>;
 };
 
 const Wrapper = styled.section`
