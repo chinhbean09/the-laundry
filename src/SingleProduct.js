@@ -14,9 +14,10 @@ import AddToCart from "./components/AddToCart";
 const API = "https://api.pujakaitem.com/api/products";
 
 const SingleProduct = () => {
+  //getSingleProduct sẽ được sử dụng để gọi API và lấy thông tin sản phẩm dựa trên id từ URL.
   const { getSingleProduct, isSingleLoading, singleProduct } =
     useProductContext();
-
+//Lấy id từ URL
   const { id } = useParams();
 
   const {
@@ -32,6 +33,8 @@ const SingleProduct = () => {
     image,
   } = singleProduct;
 
+  //gọi getSingleProduct với URL API chứa tham số id để tải thông tin sản phẩm cụ thể. Sau khi dữ liệu được tải, 
+  //hành động SET_SINGLE_PRODUCT sẽ được gọi thông qua dispatch, và trạng thái ứng dụng sẽ được cập nhật.
   useEffect(() => {
     getSingleProduct(`${API}?id=${id}`);
   }, []);

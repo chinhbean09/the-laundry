@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { FiShoppingCart } from "react-icons/fi";
 import { CgMenu, CgClose } from "react-icons/cg";
-
+import Dropdown from "react-bootstrap/Dropdown";
 const Nav = () => {
   const [menuIcon, setMenuIcon] = useState();
 
@@ -203,6 +203,22 @@ const Nav = () => {
               <span className="cart-total--item"> 10 </span>
             </NavLink>
           </li>
+          
+            <li>
+            <Dropdown>
+              <Dropdown.Toggle variant="" id="dropdown-basic">
+                                        Menu
+                                    </Dropdown.Toggle>
+
+                                    <Dropdown.Menu>
+                                        <Dropdown.Item href="/login">Login</Dropdown.Item>
+                                        <Dropdown.Item href="/signup">Signup</Dropdown.Item>
+                                        <Dropdown.Item href="/user/accountsettings">Profile</Dropdown.Item>
+                                        <Dropdown.Item href="#">Logout</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                    </li>
+
         </ul>
 
         {/* two button for open and close of menu */}
