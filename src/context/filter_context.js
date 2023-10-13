@@ -9,38 +9,67 @@ const initialState = {
   all_products: [],
   grid_view: true,
   sorting_value: "lowest",
+  filters: {
+    text: "",
+    category: "all",
+    company: "all",
+    color: "all",
+  },
 };
 
 export const FilterContextProvider = ({ children }) => {
-  // sử dụng useProductContext để lấy dữ liệu sản phẩm từ context khác
   const { products } = useProductContext();
 
-  //  useReducer(hook nè) để quản lý trạng thái của FilterContext dựa trên reducer từ filterReducer.js
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  // hàm để thiết lập chế độ xem dạng lưới (grid view)
+  // to set the grid view
   const setGridView = () => {
-    // Gọi dispatch với hành động "SET_GRID_VIEW" để cập nhật trạng thái
     return dispatch({ type: "SET_GRID_VIEW" });
   };
 
-  // sử dụng useEffect để thực hiện các hành động sau khi component được gắn kết
+  // to set the list view
+  const setListView = () => {
+    return dispatch({ type: "SET_LIST_VIEW" });
+  };
+
+  // sorting function
+  const sorting = (event) => {
+    let userValue = event.target.value;
+    dispatch({ type: "GET_SORT_VALUE", payload: userValue });
+  };
+
+  // update the filter values
+    const updateFilterValue = (event) => {
+      let name = event.target.name;
+      let value = event.target.value;
+
+      return dispatch({ type: "UPDATE_FILTERS_VALUE", payload: { name, value } });
+    };
+
+  // to sort the product
   useEffect(() => {
-    // gọi dispatch với hành động "LOAD_FILTER_PRODUCTS" và dữ liệu sản phẩm từ context khác
+    dispatch({ type: "FILTER_PRODUCTS" });
+    dispatch({ type: "SORTING_PRODUCTS" });
+  }, [products, state.sorting_value, state.filters]);
+
+  // to load all the products for grid and list view
+  useEffect(() => {
     dispatch({ type: "LOAD_FILTER_PRODUCTS", payload: products });
   }, [products]);
 
   return (
-    //  FilterContext.Provider để bọc các thành phần con với dữ liệu muốn chia sẻ
     <FilterContext.Provider
-      value={{ ...state, setGridView}}>
+      value={{
+        ...state,
+        setGridView,
+        sorting,
+        updateFilterValue,
+      }}>
       {children}
     </FilterContext.Provider>
   );
 };
 
-// tạo custom hook để dễ dàng truy cập dữ liệu từ FilterContext
-//nó sẽ có thể truy cập dữ liệu từ FilterContext. Điều này cho phép component đó lấy dữ liệu và trạng thái từ FilterContext 
 export const useFilterContext = () => {
   return useContext(FilterContext);
 };
