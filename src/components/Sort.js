@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { BsFillGridFill, BsList } from "react-icons/bs";
+import { BsFillGridFill } from "react-icons/bs";
 import { useFilterContext } from "../context/filter_context";
 
 const Sort = () => {
-  const { filter_products, grid_view, setGridView, setListView, sorting } =
+  const { filter_products, grid_view, setGridView, sorting } =
     useFilterContext();
   return (
     <Wrapper className="sort-section">
