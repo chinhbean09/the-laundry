@@ -25,18 +25,18 @@ const ProductReducer = (state, action) => {
         //tạo một bản sao (copy) của trạng thái hiện tại (state).
         //Điều này đảm bảo rằng bạn không thay đổi trạng thái ban đầu và tạo ra một trạng thái mới dựa trên trạng thái hiện tại.
         ...state,
-
         isLoading: true,
       };
 
     case "SET_API_DATA":
 // Hành động có loại "SET_API_DATA" được sử dụng khi dữ liệu từ API đã được lấy thành công
-    const featureData = action.payload.filter((curElem) => {
+    const featureData = action.payload;
+    //.filter((curElem) => {
       //đang thực hiện việc lọc (filter) các phần tử trong mảng action.payload 
       //để tạo một mảng mới chỉ chứa các phần tử có thuộc tính featured bằng true.
       //curElem là biến tạm thời đại diện cho từng phần tử trong mảng mà filter đang lặp qua
-        return curElem.featured === true;
-      });
+      //  return curElem.featured === true;
+     // });
 
       return {
         ...state,

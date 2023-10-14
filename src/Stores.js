@@ -1,22 +1,22 @@
 import styled from "styled-components";
-import FilterSection from "./components/FilterSection";
-import ProductList from "./components/ProductList";
-import Sort from "./components/Sort";
+import StoreFilterSection from "./components/StoreFilterSection";
+import StoreList from "./components/StoreList";
+import SortStore from "./components/SortStore";
 
 const Products = () => {
   return (
     <Wrapper>
       <div className="container grid grid-filter-column">
         <div>
-          <FilterSection />
+          <StoreFilterSection />
         </div>
 
         <section className="product-view--sort">
           <div className="sort-filter">
-            <Sort />
+            <SortStore />
           </div>
           <div className="main-product">
-            <ProductList />
+            <StoreList />
           </div>
         </section>
       </div>
