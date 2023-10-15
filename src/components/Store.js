@@ -1,20 +1,17 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const Product = (curElem) => {
-  const { id, name, price, cloth } = curElem;
+const Store = (curElem) => {
+  const { id, name, image } = curElem;
   return (
-    <NavLink to={`/singleproduct/${id}`}>
+    <NavLink to={`/singlestore/${id}`}>
       <div className="card">
         <figure>
-         {/* <img src={image} alt={name} /> */}
-          <figcaption className="caption">{cloth.name}</figcaption>
+          <img src={image} alt={name} />
         </figure>
-
         <div className="card-data">
           <div className="card-data-flex">
             <h3>{name}</h3>
-            <p className="card-data--price">{price}</p>
           </div>
         </div>
       </div>
@@ -22,4 +19,4 @@ const Product = (curElem) => {
   );
 };
 
-export default Product;
+export default Store;

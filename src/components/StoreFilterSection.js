@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import { useFilterContext } from "../context/filter_context";
+import { useFilterStoreContext } from "../context/storefilter_context";
 // import { FaCheck } from "react-icons/fa";
 
-const FilterSection = () => {
+const StoreFilterSection = () => {
   const {
-    filters: { text, category },
+    filters: { text, category},
     updateFilterValue,
-    all_products,
-  } = useFilterContext();
+    all_stores,
+  } = useFilterStoreContext();
 
   // get the unique values of each property
   const getUniqueData = (data, attr) => {
@@ -24,7 +24,7 @@ const FilterSection = () => {
   };
 
   // we need to have the individual data of each in an array format
-  const categoryData = getUniqueData(all_products, "category");
+  const categoryData = getUniqueData(all_stores, "category");
   // console.log(
   //   "🚀 ~ file: FilterSection.js ~ line 23 ~ FilterSection ~ companyData",
   //   colorsData
@@ -175,4 +175,4 @@ const Wrapper = styled.section`
   }
 `;
 
-export default FilterSection;
+export default StoreFilterSection;

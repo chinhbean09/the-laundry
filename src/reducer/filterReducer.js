@@ -13,12 +13,6 @@ const filterReducer = (state, action) => {
         grid_view: true,
       };
 
-    case "SET_LIST_VIEW":
-      return {
-        ...state,
-        grid_view: false,
-      };
-
     case "GET_SORT_VALUE":
       // let userSortValue = document.getElementById("sort");
       // let sort_value = userSortValue.options[userSortValue.selectedIndex].value;
