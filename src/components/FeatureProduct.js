@@ -1,10 +1,12 @@
 import { useProductContext } from "../context/productcontex";
 import styled from "styled-components";
 import Product from "./Product";
+import { NavLink } from "react-router-dom";
+
 
 const FeatureProduct = () => {
-    // sử dụng hook useProductContext để lấy dữ liệu từ ngữ cảnh
-    //trích xuất hai giá trị từ dữ liệu ngữ cảnh: isLoading 
+  // sử dụng hook useProductContext để lấy dữ liệu từ ngữ cảnh
+  //trích xuất hai giá trị từ dữ liệu ngữ cảnh: isLoading 
   const { isLoading, featureProducts } = useProductContext();
 
   if (isLoading) {
@@ -16,7 +18,13 @@ const FeatureProduct = () => {
     <Wrapper className="section">
       <div className="container">
         <div className="intro-data">Check Now!</div>
-        <div className="common-heading">Our Feature Services</div>
+        <div className="common-heading">
+          <div className="item1">Our Feature Services</div>
+          <div className="item2">
+            <NavLink to={`/products`}> All Store</NavLink>
+          </div>
+        </div>
+
         <div className="grid grid-three-column">
           {featureProducts.map((curElem) => {
             //ta tháy thẻ product có cả link chứa id =>> sịn

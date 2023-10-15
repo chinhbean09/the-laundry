@@ -9,7 +9,7 @@ import SingleProduct from "./SingleProduct";
 import ErrorPage from "./ErrorPage";
 import { GlobalStyle } from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
-
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 
 

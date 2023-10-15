@@ -116,8 +116,18 @@ ${"" /* resuable code section  */}
       font-weight: 600;
       margin-bottom: 6rem;
       text-transform: capitalize;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
     }
-
+    .item1{
+  padding: 10px;
+  text-align: left;
+    }
+    .item2{
+  padding: 10px;
+  text-align: right;
+  font-size:20px;
+    }
      .intro-data {
       margin-bottom: 0;
       text-transform: uppercase;
