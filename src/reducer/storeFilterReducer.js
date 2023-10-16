@@ -21,7 +21,7 @@ const storeFilterReducer = (state, action) => {
           sorting_value: action.payload,
         };
   
-      case "SORTING_PRODUCTS":
+      case "SORTING_STORES":
         let newSortData;
         // let tempSortProduct = [...action.payload];
   
@@ -64,7 +64,7 @@ const storeFilterReducer = (state, action) => {
           },
         };
    
-      case "FILTER_PRODUCTS":
+      case "FILTER_STORES":
         let { all_stores } = state;
         let tempFilterStore = [...all_stores];
   
@@ -92,4 +92,3 @@ const storeFilterReducer = (state, action) => {
   };
   
   export default storeFilterReducer;
-i  

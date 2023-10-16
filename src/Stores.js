@@ -2,15 +2,18 @@ import styled from "styled-components";
 import StoreFilterSection from "./components/StoreFilterSection";
 import StoreList from "./components/StoreList";
 import SortStore from "./components/SortStore";
+import {useFilterStoreContext} from "./context/storefilter_context"
 
-const Products = () => {
+const Stores = () => {
+  const {filter_stores} = useFilterStoreContext();
+  console.log("~file: Stores.js ~ filter_stores",filter_stores);
+  
   return (
     <Wrapper>
       <div className="container grid grid-filter-column">
         <div>
           <StoreFilterSection />
         </div>
-
         <section className="product-view--sort">
           <div className="sort-filter">
             <SortStore />
@@ -36,4 +39,4 @@ const Wrapper = styled.section`
   }
 `;
 
-export default Products;
+export default Stores;

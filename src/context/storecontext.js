@@ -11,7 +11,8 @@ const API = "https://api.pujakaitem.com/api/products";
 const initialState = {
   isLoading: false,
   isError: false,
-  products: [],
+  stores: [],
+  featureStores:[],
   isSingleLoading: false,
   singleStore : {},
 };
@@ -31,6 +32,7 @@ const StoreProvider = ({ children }) => {
     try {
       //gọi API bằng cách sử dụng Axios để lấy dữ liệu từ URL được đưa vào qua tham số url.
       const res = await axios.get(url);
+      
       //dữ liệu sản phẩm được lấy từ phản hồi của API (res.data) và được gán vào biến products.
       const stores = await res.data;
       dispatch({ type: "SET_API_DATA", payload: stores });
@@ -42,7 +44,7 @@ const StoreProvider = ({ children }) => {
     }
   };
 
-    //API FOR SINGLE PRODUCT 
+    //API FOR SINGLE STORE  
     const getSingleStore = async (url) => {
       dispatch({ type: "SET_SINGLE_LOADING" });
       try{
@@ -71,7 +73,7 @@ const StoreProvider = ({ children }) => {
 
 // custom hooks, nó được tạo ra để đơn giản hóa việc truy cập dữ liệu từ AppContext.
 const useStoreContext = () => {
-  return useStoreContext(StoreContext);
+  return useContext(StoreContext);
     //được sử dụng để trả về giá trị của AppContext
   //Điều này có nghĩa rằng bất kỳ thành phần nào sử dụng useProductContext sẽ nhận được dữ liệu đã được đặt trong AppProvider.
 

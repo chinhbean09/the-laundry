@@ -42,7 +42,7 @@ const StoreReducer = (state, action) => {
           ...state,
           isLoading: false,
           //Dữ liệu sản phẩm từ API (action.payload) được gán vào trạng thái products.
-          products: action.payload,
+          stores: action.payload,
           //Dữ liệu sản phẩm đặc biệt (featureProducts) được tạo bằng cách lọc các sản phẩm có thuộc tính featured là true.
           featureStores: featureData,
         };

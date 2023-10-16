@@ -3,7 +3,8 @@ import styled from "styled-components";
 import { Button } from "../styles/Button";
 
 const HeroSection = ({ myData }) => {
-  const { name } = myData;
+  const { name, image } = myData;
+
 
   return (
     <Wrapper>
@@ -22,11 +23,12 @@ const HeroSection = ({ myData }) => {
           {/* our homepage image  */}
           <div className="hero-section-image">
             <figure>
-              <img
-                src="images/hero.jpg"
-                alt="hero-section-photo"
-                className="img-style"
-              />
+            <img
+            src={image} // Use the 'image' property
+            alt="hero-section-photo"
+            className="img-style"
+/>
+
             </figure>
           </div>
         </div>

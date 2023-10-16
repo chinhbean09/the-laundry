@@ -1,6 +1,6 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
 import { useStoreContext } from "./storecontext";
-import reducer from "../reducer/filterReducer";
+import reducer from "../reducer/storeFilterReducer";
 
 const FilterStoreContext = createContext();
 
@@ -16,6 +16,9 @@ const initialState = {
 
 export const FilterStoreContextProvider = ({ children }) => {
   const { stores } = useStoreContext();
+  console.log(
+    "~file: storefilter_context.js",stores
+  );
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -46,7 +49,7 @@ export const FilterStoreContextProvider = ({ children }) => {
 
   // to load all the products for grid and list view
   useEffect(() => {
-    dispatch({ type: "LOAD_FILTER_PRODUCTS", payload: stores });
+    dispatch({ type: "LOAD_FILTER_STORES", payload: stores });
   }, [stores]);
 
   return (
