@@ -7,7 +7,8 @@ import {authHeader} from "./auth-header";
 // /Đây là nơi bạn sẽ lưu trữ dữ liệu bạn muốn chia sẻ trong ứng dụng của bạn.  
 const AppContext = createContext();
 
-const API = "https://magpie-aware-lark.ngrok-free.app/api/v1/store/special-service/all";
+// const API = "https://magpie-aware-lark.ngrok-free.app/api/v1/store/special-service/all";
+const API = "https://api.pujakaitem.com/api/products";
 
 const initialState = {
   isLoading: false,
