@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { BsFillGridFill } from "react-icons/bs";
 import { useFilterStoreContext } from "../context/storefilter_context";
 
-const Sort = () => {
-  const { filter_stores, grid_view, setGridView } =
+const SortStore = () => {
+  const { filter_stores, grid_view, setGridView, sorting } =
   useFilterStoreContext();
   return (
     <Wrapper className="sort-section">
@@ -24,7 +24,7 @@ const Sort = () => {
       </div>
 
       {/* 3rd column  */}
-      {/* <div className="sort-selection">
+       <div className="sort-selection">
         <form action="#">
           <label htmlFor="sort"></label>
           <select
@@ -32,16 +32,12 @@ const Sort = () => {
             id="sort"
             className="sort-selection--style"
             onClick={sorting}>
-            <option value="lowest">Price(lowest)</option>
-            <option value="#" disabled></option>
-            <option value="highest">Price(highest)</option>
-            <option value="#" disabled></option>
             <option value="a-z">Price(a-z)</option>
             <option value="#" disabled></option>
             <option value="z-a">Price(z-a)</option>
           </select>
         </form>
-      </div> */}
+      </div> 
     </Wrapper>
   );
 };
@@ -86,4 +82,4 @@ const Wrapper = styled.section`
   }
 `;
 
-export default Sort;
+export default SortStore;

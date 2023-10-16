@@ -7,16 +7,19 @@ import { AppProvider } from "./context/productcontex";
 import { FilterContextProvider } from "./context/filter_context";
 import { RecoilRoot } from 'recoil';
 import { StoreProvider } from "./context/storecontext";
+import { FilterStoreContextProvider } from "./context/storefilter_context";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
 <RecoilRoot>
   <StoreProvider>
-<AppProvider>
-<FilterContextProvider>
+    <FilterStoreContextProvider>
+      <AppProvider>
+    <FilterContextProvider> 
     <App />
-    </FilterContextProvider>
+  </FilterContextProvider>
   </AppProvider>
+  </FilterStoreContextProvider>
   </StoreProvider>
   </RecoilRoot>
 );
