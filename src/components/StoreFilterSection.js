@@ -25,6 +25,7 @@ const StoreFilterSection = () => {
 
   // we need to have the individual data of each in an array format
   const categoryData = getUniqueData(all_stores, "category");
+  const areaData = getUniqueData(all_stores, "company");
   // console.log(
   //   "🚀 ~ file: FilterSection.js ~ line 23 ~ FilterSection ~ companyData",
   //   colorsData
@@ -43,7 +44,25 @@ const StoreFilterSection = () => {
           />
         </form>
       </div>
+      <div className="filter-company">
+        <h3>company</h3>
 
+        <form action="#">
+          <select
+            name="company"
+            id="company"
+            className="filter-company--select"
+            onClick={updateFilterValue}>
+            {areaData.map((curElem, index) => {
+              return (
+                <option key={index} value={curElem} name="company">
+                  {curElem}
+                </option>
+              );
+            })}
+          </select>
+        </form>
+      </div>
       <div className="filter-category">
         <h3>Category</h3>
         <div>

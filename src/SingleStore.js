@@ -26,7 +26,7 @@ const SingleStore = () => {
   const {
     id: alias,
     name,
-    company,
+    area,
     price,
     description,
     category,
