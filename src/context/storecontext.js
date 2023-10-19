@@ -1,20 +1,24 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import axios from "axios";
 import reducer from "../reducer/storeReducer";
+import {authHeader} from "../context/auth-header";
 
 // /được sử dụng để tạo một Context mới
 // /Đây là nơi bạn sẽ lưu trữ dữ liệu bạn muốn chia sẻ trong ứng dụng của bạn.  
 const StoreContext = createContext();
 
-const API = "https://api.pujakaitem.com/api/products";
-
+const API = "https://magpie-aware-lark.ngrok-free.app/api/v1/base/store/all";
+const config = authHeader;
 const initialState = {
   isLoading: false,
   isError: false,
   stores: [],
+  products: [],
   featureStores:[],
+  grid_view: true,
   isSingleLoading: false,
   singleStore : {},
+  singleServiceStore:{}
 };
 
 const StoreProvider = ({ children }) => {
@@ -31,7 +35,7 @@ const StoreProvider = ({ children }) => {
     dispatch({ type: "SET_LOADING" });
     try {
       //gọi API bằng cách sử dụng Axios để lấy dữ liệu từ URL được đưa vào qua tham số url.
-      const res = await axios.get(url);
+      const res = await axios.get(url,config);
       
       //dữ liệu sản phẩm được lấy từ phản hồi của API (res.data) và được gán vào biến products.
       const stores = await res.data;
@@ -48,7 +52,7 @@ const StoreProvider = ({ children }) => {
     const getSingleStore = async (url) => {
       dispatch({ type: "SET_SINGLE_LOADING" });
       try{
-        const res = await axios.get(url);
+        const res = await axios.get(url,config);
         const singleStore = await res.data;
         dispatch({ type: "SET_SINGLE_STORE", payload: singleStore });
       }catch(error){
@@ -56,6 +60,17 @@ const StoreProvider = ({ children }) => {
       }
 
     }
+    const getSingleServiceStore = async (url) => {
+      
+        const res = await axios.get(url,config);
+        const singleServiceStore = await res.data;
+        dispatch({ type: "SET_SINGLE_SERVICE_STORE", payload: singleServiceStore });
+      }
+
+      const setGridView = () => {
+        return dispatch({ type: "SET_GRID_VIEW" });
+      };
+    
 
 
   //gọi hàm getProducts khi AppProvider được tạo.
@@ -67,7 +82,7 @@ const StoreProvider = ({ children }) => {
 
   return (
         //sử dụng <AppContext.Provider> để bọc các thành phần con với dữ liệu bạn muốn chia sẻ. 
-        <StoreContext.Provider value={{ ...state, getSingleStore }}>{children}</StoreContext.Provider>
+        <StoreContext.Provider value={{ ...state,setGridView, getSingleStore, getSingleServiceStore }}>{children}</StoreContext.Provider>
         );
 };
 

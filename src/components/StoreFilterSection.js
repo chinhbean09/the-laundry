@@ -4,7 +4,7 @@ import { useFilterStoreContext } from "../context/storefilter_context";
 
 const StoreFilterSection = () => {
   const {
-    filters: { text, category},
+    filters: { text, services},
     updateFilterValue,
     all_stores,
   } = useFilterStoreContext();
@@ -24,8 +24,8 @@ const StoreFilterSection = () => {
   };
 
   // we need to have the individual data of each in an array format
-  const categoryData = getUniqueData(all_stores, "category");
-  const areaData = getUniqueData(all_stores, "company");
+  const servicesData = getUniqueData(all_stores, "category");
+  const areaData = getUniqueData(all_stores, "district");
   // console.log(
   //   "🚀 ~ file: FilterSection.js ~ line 23 ~ FilterSection ~ companyData",
   //   colorsData
@@ -44,18 +44,19 @@ const StoreFilterSection = () => {
           />
         </form>
       </div>
+
       <div className="filter-company">
-        <h3>company</h3>
+        <h3>District</h3>
 
         <form action="#">
           <select
-            name="company"
-            id="company"
+            name="district"
+            id="district"
             className="filter-company--select"
             onClick={updateFilterValue}>
             {areaData.map((curElem, index) => {
               return (
-                <option key={index} value={curElem} name="company">
+                <option key={index} value={curElem} name="district">
                   {curElem}
                 </option>
               );
@@ -63,17 +64,18 @@ const StoreFilterSection = () => {
           </select>
         </form>
       </div>
+
       <div className="filter-category">
-        <h3>Category</h3>
+        <h3>Services</h3>
         <div>
-          {categoryData.map((curElem, index) => {
+          {servicesData.map((curElem, index) => {
             return (
               <button
                 key={index}
                 type="button"
-                name="category"
+                name="services"
                 value={curElem}
-                className={curElem === category ? "active" : ""}
+                className={curElem === services ? "active" : ""}
                 onClick={updateFilterValue}>
                 {curElem}
               </button>

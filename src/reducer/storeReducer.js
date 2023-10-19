@@ -31,12 +31,14 @@ const StoreReducer = (state, action) => {
   
       case "SET_API_DATA":
   // Hành động có loại "SET_API_DATA" được sử dụng khi dữ liệu từ API đã được lấy thành công
-      const featureData = action.payload.filter((curElem) => {
-        //đang thực hiện việc lọc (filter) các phần tử trong mảng action.payload 
-        //để tạo một mảng mới chỉ chứa các phần tử có thuộc tính featured bằng true.
-        //curElem là biến tạm thời đại diện cho từng phần tử trong mảng mà filter đang lặp qua
-          return curElem.featured === true;
-        });
+      // const featureData = action.payload.filter((curElem) => {
+      //   //đang thực hiện việc lọc (filter) các phần tử trong mảng action.payload 
+      //   //để tạo một mảng mới chỉ chứa các phần tử có thuộc tính featured bằng true.
+      //   //curElem là biến tạm thời đại diện cho từng phần tử trong mảng mà filter đang lặp qua
+      //     return curElem.featured === true;
+                  
+
+      //   });
   
         return {
           ...state,
@@ -44,7 +46,7 @@ const StoreReducer = (state, action) => {
           //Dữ liệu sản phẩm từ API (action.payload) được gán vào trạng thái products.
           stores: action.payload,
           //Dữ liệu sản phẩm đặc biệt (featureProducts) được tạo bằng cách lọc các sản phẩm có thuộc tính featured là true.
-          featureStores: featureData,
+          // featureStores: featureData,
         };
   
       case "API_ERROR":
@@ -57,17 +59,14 @@ const StoreReducer = (state, action) => {
   
           return {  
             ...state,
-    
             isSingleLoading: true,
           };
   
         case "SET_SINGLE_STORE":
           return {  
             ...state,
-  
             isSingleLoading: false,
             singleStore: action.payload,
-  
           };
           case "SET_SINGLE_ERROR":
         return {
@@ -75,8 +74,22 @@ const StoreReducer = (state, action) => {
           isLoading: false,
           isError: true,
         }; 
+        case "SET_SINGLE_SERVICE_STORE":
+          return{
+            ...state,
+            isSingleLoading: false,
+            singleServiceStore: action.payload,
+          };
+
+          case "SET_GRID_VIEW":
+            return {
+              ...state,
+              grid_view: true,
+            };
+      
       default:
         return state;
+
     }
   };
   

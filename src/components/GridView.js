@@ -1,8 +1,25 @@
 import React from "react";
 import styled from "styled-components";
 import Product from "./Product";
+import { useStoreContext } from "../context/storecontext";
 
 const GridView = ({ products }) => {
+  const { singleServiceStore} = useStoreContext();
+
+  if (!Array.isArray(products)) {
+    
+    return (
+      <div>
+        <p>No products available.</p>
+      </div>
+    );
+  }
+
+    
+   console.log(
+    "~ file: grid.js", singleServiceStore
+  );
+
   return (
     <Wrapper className="section">
       <div className="container grid grid-three-column">
@@ -11,7 +28,9 @@ const GridView = ({ products }) => {
         })}
       </div>
     </Wrapper>
+    
   );
+ 
 };
 
 const Wrapper = styled.section`

@@ -8,12 +8,12 @@ import FilterSection from "./components/FilterSection";
 import ProductList from "./components/ProductList";
 import Sort from "./components/Sort";
 
-const API = "https://api.pujakaitem.com/api/products";
+const API = "https://magpie-aware-lark.ngrok-free.app/api/v1/base";
 
 const SingleStore = () => {
   // const { getSingleStore, isSingleLoading, singleStore } =
   // useStoreContext();
-  const { getSingleStore, isSingleLoading, singleStore } = useStoreContext();
+  const { getSingleStore,getSingleServiceStore, isSingleLoading, singleStore,singleServiceStore } = useStoreContext();
   // console.log("~file: SingleStore.js ~ line 10 ~ SingleStore ~ singleStore", 
   // singleStore
   // );
@@ -34,11 +34,31 @@ const SingleStore = () => {
     stars,
     reviews,
     image,
+
+
   } = singleStore;
 
+  const {
+    
+    storeId: alias2
+     
+
+
+    
+} = singleServiceStore;
+
 useEffect(() => {
-  getSingleStore(`${API}?id=${id}`);
-}, []);
+  getSingleStore(`${API}/store/get/${id}`);
+  getSingleServiceStore(`${API}/special-service/store/${id}`);
+  // getSingleServiceStore(`https://magpie-aware-lark.ngrok-free.app/api/v1/base/store/all`);
+}, [],[]);
+
+console.log(
+  "~file: test.js",singleServiceStore
+);
+// useEffect(() => {
+//   getSingleServiceStore(`${API}/get/${id}`);
+// }, []);
 
 if (isSingleLoading) {
   return <div className="page_loading">Loading.....</div>;
@@ -55,11 +75,11 @@ return(
       <HeroSection myData={data} />
       <div className="container grid grid-filter-column">
         <div>
-        <FilterSection />
+        {/* <FilterSection /> */}
         </div>
         <section className="product-view--sort">
           <div className="sort-filter">
-          <Sort />
+          {/* <Sort /> */}
           </div>
           <div className="main-product">
           <ProductList />

@@ -20,7 +20,7 @@ const SortStore = () => {
       </div>
       {/* 2nd column  */}
       <div className="product-data">
-        <p>{`${filter_stores.length} Product Available`}</p>
+        <p>{`${filter_stores.length} Store Available`}</p>
       </div>
 
       {/* 3rd column  */}

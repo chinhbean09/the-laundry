@@ -1,14 +1,21 @@
 import React from "react";
-import { useFilterContext } from "../context/filter_context";
+import { useStoreContext } from "../context/storecontext";
 import GridView from "./GridView";
 
-
-const ProductList = () => {
-  const { filter_products, grid_view } = useFilterContext();
+const  ProductList = () => {
+  const { singleServiceStore, grid_view} = useStoreContext();
+  
 
   if (grid_view === true) {
-    return <GridView products={filter_products} />;
+    return <GridView products={singleServiceStore} />;
+    
   }
+  console.log(
+    "~file: 123.js",singleServiceStore
+  );
+  console.log(
+    "~file: 1243.js", grid_view
+  );
 
 
 };

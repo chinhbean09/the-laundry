@@ -10,13 +10,14 @@ const initialState = {
   grid_view: true,
   filters: {
     text: "",
-    category: "all",
-    area: "all"
+    services: "all",
+    district: "all",
   },
 };
 
 export const FilterStoreContextProvider = ({ children }) => {
   const { stores } = useStoreContext();
+  
   console.log(
     "~file: storefilter_context.js",stores
   );

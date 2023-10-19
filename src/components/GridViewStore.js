@@ -3,6 +3,9 @@ import styled from "styled-components";
 import Store from "./Store";
 
 const GridViewStore = ({ stores }) => {
+  console.log(
+    "~ file: 123123132", stores
+  );
   return (
     <Wrapper className="section">
       <div className="container grid grid-three-column">
