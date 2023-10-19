@@ -16,7 +16,7 @@ const initialState = {
   products: [],
   featureProducts: [],
   isSingleLoading: false,
-  singleProduct : {},
+  singleProduct : {}, 
 };
 
 const AppProvider = ({ children }) => {

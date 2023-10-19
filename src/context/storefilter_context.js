@@ -11,6 +11,7 @@ const initialState = {
   filters: {
     text: "",
     category: "all",
+    area: "all"
   },
 };
 

@@ -60,7 +60,7 @@ const filterReducer = (state, action) => {
         ...state,
         filters: {
           ...state.filters,
-          [name]: value,
+          [name]: value
         },
       };
  
@@ -76,10 +76,13 @@ const filterReducer = (state, action) => {
         });
       }
 
+      
       if (category !== "all") {
         tempFilterProduct = tempFilterProduct.filter(
           (curElem) =>{ return curElem.category === category}
         );
+
+      
       }
       return {
         ...state,

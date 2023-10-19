@@ -25,6 +25,7 @@ const FilterSection = () => {
 
   // we need to have the individual data of each in an array format
   const categoryData = getUniqueData(all_products, "category");
+  const companyData = getUniqueData(all_products, "company");
   // console.log(
   //   "🚀 ~ file: FilterSection.js ~ line 23 ~ FilterSection ~ companyData",
   //   colorsData
@@ -43,7 +44,7 @@ const FilterSection = () => {
           />
         </form>
       </div>
-
+      
       <div className="filter-category">
         <h3>Category</h3>
         <div>
