@@ -1,11 +1,13 @@
 import { useState } from "react";
 import styled from "styled-components";
 import CartAmountToggle from "./CartAmountToggle";
-import { FaCheck } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { Button } from "../styles/Button";
+import { useCartContext } from "../context/cart_context";
+
 
 const AddToCart = ({ product }) => {
+  const { addToCart } = useCartContext();
   const { id, colors, stock } = product;
 
   const [color, setColor] = useState(colors[0]);
@@ -29,7 +31,7 @@ const AddToCart = ({ product }) => {
         setIncrease={setIncrease}
       />
 
-      <NavLink to="/cart">
+      <NavLink to="/cart" onClick={() => addToCart(id, amount, product)}>
         <Button className="btn">Add To Cart</Button>
       </NavLink>
     </Wrapper>
@@ -48,7 +50,7 @@ const Wrapper = styled.section`
   .btnStyle {
     width: 2rem;
     height: 2rem;
-    background-color: #000;
+    background-color: #ff0000;
     border-radius: 50%;
     margin-left: 1rem;
     border: none;
@@ -81,7 +83,6 @@ const Wrapper = styled.section`
 
     button {
       border: none;
-      background-color: #fff;
       cursor: pointer;
     }
 

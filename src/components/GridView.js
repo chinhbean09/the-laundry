@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Product from "./Product";
 
 const GridView = ({ products }) => {
+  console.log("Product", products);
   return (
     <Wrapper className="section">
       <div className="container grid grid-three-column">
@@ -13,7 +14,6 @@ const GridView = ({ products }) => {
     </Wrapper>
   );
 };
-
 const Wrapper = styled.section`
   padding: 9rem 0;
 
@@ -84,7 +84,7 @@ const Wrapper = styled.section`
 
     .btn {
       margin: 2rem auto;
-      background-color: rgb(0 0 0 / 0%);
+      background-color: rgb(98 84 243);
       border: 0.1rem solid rgb(98 84 243);
       display: flex;
       justify-content: center;

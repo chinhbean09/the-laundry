@@ -14,26 +14,11 @@ const SingleStore = () => {
   // const { getSingleStore, isSingleLoading, singleStore } =
   // useStoreContext();
   const { getSingleStore, isSingleLoading, singleStore } = useStoreContext();
-  // console.log("~file: SingleStore.js ~ line 10 ~ SingleStore ~ singleStore", 
-  // singleStore
-  // );
-  // const {filter_stores} = useFilterStoreContext();
-  
-
   const { id } = useParams();
-  // console.log("~ file: SingleProduct.js ~ line 6 ~ singleProduct ~ id", id)
 
   const {
     id: alias,
     name,
-    company,
-    price,
-    description,
-    category,
-    stock,
-    stars,
-    reviews,
-    image,
   } = singleStore;
 
 useEffect(() => {
@@ -43,10 +28,7 @@ useEffect(() => {
 if (isSingleLoading) {
   return <div className="page_loading">Loading.....</div>;
 }
-const data = {
-  name,
-  image,
-};
+const data = {name};
 
 return(
   

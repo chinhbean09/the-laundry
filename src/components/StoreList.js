@@ -8,9 +8,6 @@ const StoreList = () => {
   if (grid_view === true) {
     return <GridViewStore stores={filter_stores} />;
   }
-  
-
-
 };
 
 export default StoreList;

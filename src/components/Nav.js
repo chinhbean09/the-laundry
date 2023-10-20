@@ -4,9 +4,12 @@ import styled from "styled-components";
 import { FiShoppingCart } from "react-icons/fi";
 import { CgMenu, CgClose } from "react-icons/cg";
 import Dropdown from "react-bootstrap/Dropdown";
+import { useCartContext } from "../context/cart_context";
+
+
 const Nav = () => {
   const [menuIcon, setMenuIcon] = useState();
-
+  const { total_item } = useCartContext();
   const Nav = styled.nav`
     .navbar-lists {
       display: flex;
@@ -183,10 +186,10 @@ const Nav = () => {
           </li>
           <li>
             <NavLink
-              to="/products"
+              to="/stores"
               className="navbar-link "
               onClick={() => setMenuIcon(false)}>
-              Products
+              Stores
             </NavLink>
           </li>
           <li>
@@ -200,24 +203,24 @@ const Nav = () => {
           <li>
             <NavLink to="/cart" className="navbar-link cart-trolley--link">
               <FiShoppingCart className="cart-trolley" />
-              <span className="cart-total--item"> 10 </span>
+              <span className="cart-total--item">{total_item} </span>
             </NavLink>
           </li>
-          
-            <li>
+
+          <li>
             <Dropdown>
               <Dropdown.Toggle variant="" id="dropdown-basic">
-                                        Menu
-                                    </Dropdown.Toggle>
+                Menu
+              </Dropdown.Toggle>
 
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item href="/login">Login</Dropdown.Item>
-                                        <Dropdown.Item href="/signup">Signup</Dropdown.Item>
-                                        <Dropdown.Item href="/user/accountsettings">Profile</Dropdown.Item>
-                                        <Dropdown.Item href="#">Logout</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                    </li>
+              <Dropdown.Menu>
+                <Dropdown.Item href="/login">Login</Dropdown.Item>
+                <Dropdown.Item href="/signup">Signup</Dropdown.Item>
+                <Dropdown.Item href="/user/accountsettings">Profile</Dropdown.Item>
+                <Dropdown.Item href="#">Logout</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </li>
 
         </ul>
 

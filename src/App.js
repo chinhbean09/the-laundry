@@ -55,6 +55,7 @@ const App = () => {
           <Route path="/singlestore/:id" element={<SingleStore />} />
           <Route path="/singleproduct/:id" element={<SingleProduct />} />
           <Route path="/cart" element={<Cart />} />
+          {/* <Route path="/service1" element={<Service1 />} /> */}
           <Route path="*" element={<ErrorPage />} />
           <Route path='/user/:activepage' element={<UserProfile/>} />
         </Routes>

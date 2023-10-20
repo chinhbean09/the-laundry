@@ -4,7 +4,7 @@ import { useFilterStoreContext } from "../context/storefilter_context";
 
 const StoreFilterSection = () => {
   const {
-    filters: { text, category},
+    filters: { text, category },
     updateFilterValue,
     all_stores,
   } = useFilterStoreContext();
@@ -23,12 +23,6 @@ const StoreFilterSection = () => {
     return (newVal = ["all", ...new Set(newVal)]);
   };
 
-  // we need to have the individual data of each in an array format
-  const categoryData = getUniqueData(all_stores, "category");
-  // console.log(
-  //   "🚀 ~ file: FilterSection.js ~ line 23 ~ FilterSection ~ companyData",
-  //   colorsData
-  // );
 
   return (
     <Wrapper>
@@ -47,23 +41,32 @@ const StoreFilterSection = () => {
       <div className="filter-category">
         <h3>Category</h3>
         <div>
-          {categoryData.map((curElem, index) => {
+          {/* {categoryData.map((curElem, index) => {
             return (
               <button
                 key={index}
                 type="button"
                 name="category"
-                value={curElem}
+                
                 className={curElem === category ? "active" : ""}
                 onClick={updateFilterValue}>
-                {curElem}
+  
               </button>
             );
-          })}
+          })} */}
+          <button>Quận 1</button>
+          <button>Quận 2</button>
+          <button>Quận 3</button>
+          <button>Quận 4</button>
+          <button>Quận 5</button>
+          <button>Quận 6</button>
+          <button>Quận 7</button>
+          <button>Quận 8</button>
+          <button>Quận 9</button>
         </div>
       </div>
 
-      
+
     </Wrapper>
   );
 };

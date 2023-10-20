@@ -107,7 +107,7 @@ const Wrapper = styled.section`
 
     .btn {
       margin: 2rem auto;
-      background-color: rgb(0 0 0 / 0%);
+      background-color: rgb(98 84 243);
       border: 0.1rem solid rgb(98 84 243);
       display: flex;
       justify-content: center;
