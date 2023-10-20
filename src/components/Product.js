@@ -1,14 +1,22 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import AddToCart from "./AddToCart";
+import { useProductContext } from "../context/productcontex";
 
 const Product = (curElem) => {
-  const { id, name, image, price, category } = curElem;
+  const { getSingleProduct, isSingleLoading, singleProduct } =
+    useProductContext();
+
+  const {
+    stock,
+  } = singleProduct;
+  const { id, name, price,image } = curElem;
   return (
     <NavLink to={`/singleproduct/${id}`}>
       <div className="card">
         <figure>
-          <img src={image} alt={name} />
-          <figcaption className="caption">{category}</figcaption>
+         <img src={image} alt={name} />
+          <figcaption className="caption">{name}</figcaption>
         </figure>
 
         <div className="card-data">
@@ -17,6 +25,7 @@ const Product = (curElem) => {
             <p className="card-data--price">{price}</p>
           </div>
         </div>
+        {stock > 0 && <AddToCart product={singleProduct} />}
       </div>
     </NavLink>
   );

@@ -1,11 +1,14 @@
-import { useProductContext } from "../context/productcontex";
+import { useStoreContext } from "../context/storecontext";
 import styled from "styled-components";
-import Product from "./Product";
+import Store from "./Store";
 
-const FeatureProduct = () => {
+const FeatureStore = () => {
     // sử dụng hook useProductContext để lấy dữ liệu từ ngữ cảnh
     //trích xuất hai giá trị từ dữ liệu ngữ cảnh: isLoading 
-  const { isLoading, featureProducts } = useProductContext();
+  const { isLoading, featureStores } = useStoreContext();
+    console.log(
+        "~file: FeatureStore.js ~ line 4 ~ featureStores",featureStores
+    );
 
   if (isLoading) {
     return <div> ......Loading </div>;
@@ -16,11 +19,11 @@ const FeatureProduct = () => {
     <Wrapper className="section">
       <div className="container">
         <div className="intro-data">Check Now!</div>
-        <div className="common-heading">Our Feature Services</div>
+        <div className="common-heading">Our Feature Stores</div>
         <div className="grid grid-three-column">
-          {featureProducts.map((curElem) => {
+          {featureStores.map((curElem) => {
             //ta tháy thẻ product có cả link chứa id =>> sịn
-            return <Product key={curElem.id} {...curElem} />;
+            return <Store key={curElem.id} {...curElem} />;
           })}
         </div>
       </div>
@@ -128,4 +131,4 @@ const Wrapper = styled.section`
   }
 `;
 
-export default FeatureProduct;
+export default FeatureStore;

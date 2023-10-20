@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Button } from "../styles/Button";
 
 const HeroSection = ({ myData }) => {
-  const { name } = myData;
+  const { name} = myData;
 
   return (
     <Wrapper>
@@ -13,9 +13,7 @@ const HeroSection = ({ myData }) => {
             <p className="intro-data">Welcome to </p>
             <h1> { name }</h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-              atque temporibus veniam doloribus libero ad error omnis voluptates
-              animi! Suscipit sapiente.
+            Let us help you keep your clothes clean and shining!
             </p>
             <NavLink>
               <Button>show now</Button>
@@ -24,11 +22,11 @@ const HeroSection = ({ myData }) => {
           {/* our homepage image  */}
           <div className="hero-section-image">
             <figure>
-              <img
-                src="images/hero.jpg"
-                alt="hero-section-photo"
-                className="img-style"
-              />
+            <img
+            src="../images/hero.jpg"
+            alt="hero-section-photo"
+            className="img-style"
+            />
             </figure>
           </div>
         </div>

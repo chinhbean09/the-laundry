@@ -1,22 +1,24 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
-import { useProductContext } from "./productcontex";
-import reducer from "../reducer/filterReducer";
+import { useStoreContext } from "./storecontext";
+import reducer from "../reducer/storeFilterReducer";
 
-const FilterContext = createContext();
+const FilterStoreContext = createContext();
 
 const initialState = {
-  filter_products: [],
-  all_products: [],
+  filter_stores: [],
+  all_stores: [],
   grid_view: true,
-  sorting_value: "lowest",
   filters: {
     text: "",
     category: "all",
   },
 };
 
-export const FilterContextProvider = ({ children }) => {
-  const { products } = useProductContext();
+export const FilterStoreContextProvider = ({ children }) => {
+  const { stores } = useStoreContext();
+  console.log(
+    "~file: storefilter_context.js",stores
+  );
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -24,7 +26,6 @@ export const FilterContextProvider = ({ children }) => {
   const setGridView = () => {
     return dispatch({ type: "SET_GRID_VIEW" });
   };
-
 
   // sorting function
   const sorting = (event) => {
@@ -42,17 +43,17 @@ export const FilterContextProvider = ({ children }) => {
 
   // to sort the product
   useEffect(() => {
-    dispatch({ type: "FILTER_PRODUCTS" });
-    dispatch({ type: "SORTING_PRODUCTS" });
-  }, [products, state.sorting_value, state.filters]);
+    dispatch({ type: "FILTER_STORES" });
+    dispatch({ type: "SORTING_STORES" });
+  }, [stores, state.sorting_value, state.filters]);
 
   // to load all the products for grid and list view
   useEffect(() => {
-    dispatch({ type: "LOAD_FILTER_PRODUCTS", payload: products });
-  }, [products]);
+    dispatch({ type: "LOAD_FILTER_STORES", payload: stores });
+  }, [stores]);
 
   return (
-    <FilterContext.Provider
+    <FilterStoreContext.Provider
       value={{
         ...state,
         setGridView,
@@ -60,10 +61,10 @@ export const FilterContextProvider = ({ children }) => {
         updateFilterValue,
       }}>
       {children}
-    </FilterContext.Provider>
+    </FilterStoreContext.Provider>
   );
 };
 
-export const useFilterContext = () => {
-  return useContext(FilterContext);
+export const useFilterStoreContext = () => {
+  return useContext(FilterStoreContext);
 };

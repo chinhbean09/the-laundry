@@ -9,9 +9,10 @@ import SingleProduct from "./SingleProduct";
 import ErrorPage from "./ErrorPage";
 import { GlobalStyle } from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
-
+import UserProfile from './PAGES/User/UserProfile';
+import Stores from './Stores'
 import Header from "./components/Header";
-
+import SingleStore from "./SingleStore";
 
 const App = () => {
   const theme = {
@@ -47,12 +48,18 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/stores" element={<Stores />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/stores" element={<Stores />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/singlestore/:id" element={<SingleStore />} />
           <Route path="/singleproduct/:id" element={<SingleProduct />} />
           <Route path="/cart" element={<Cart />} />
+          {/* <Route path="/service1" element={<Service1 />} /> */}
           <Route path="*" element={<ErrorPage />} />
+          <Route path='/user/:activepage' element={<UserProfile/>} />
         </Routes>
+        
       </Router>
     </ThemeProvider>
   )

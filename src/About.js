@@ -1,16 +1,13 @@
 import HeroSection from "./components/HeroSection";
-import { useProductContext } from "./context/productcontex";
 
 const About = () => {
-  const { myName } = useProductContext();
 
   const data = {
-    name: "Chinh Do",
+    name: "The Laundry",
   };
 
   return (
     <>
-      {myName}
       <HeroSection myData={data} />
     </>
   );
