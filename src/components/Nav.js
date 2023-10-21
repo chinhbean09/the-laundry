@@ -5,6 +5,8 @@ import { FiShoppingCart } from "react-icons/fi";
 import { CgMenu, CgClose } from "react-icons/cg";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useCartContext } from "../context/cart_context";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 const Nav = () => {
@@ -209,14 +211,14 @@ const Nav = () => {
 
           <li>
             <Dropdown>
-              <Dropdown.Toggle variant="" id="dropdown-basic">
+              <Dropdown.Toggle variant="" id="dropdown-basic"style={{fontSize: '22px'}}>
                 Menu
               </Dropdown.Toggle>
 
-              <Dropdown.Menu>
+              <Dropdown.Menu style={{ width: '200px', height: 'auto', fontSize: '18px'}}>
                 <Dropdown.Item href="/login">Login</Dropdown.Item>
                 <Dropdown.Item href="/signup">Signup</Dropdown.Item>
-                <Dropdown.Item href="/user/accountsettings">Profile</Dropdown.Item>
+                <Dropdown.Item href="/Accountsettings">Profile</Dropdown.Item>
                 <Dropdown.Item href="#">Logout</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>

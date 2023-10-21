@@ -13,6 +13,7 @@ import UserProfile from './PAGES/User/UserProfile';
 import Stores from './Stores'
 import Header from "./components/Header";
 import SingleStore from "./SingleStore";
+import AccountSettings from "./components/UserProfile/AccountSettings";
 
 const App = () => {
   const theme = {
@@ -55,6 +56,7 @@ const App = () => {
           <Route path="/singlestore/:id" element={<SingleStore />} />
           <Route path="/singleproduct/:id" element={<SingleProduct />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/AccountSettings" element={<AccountSettings />} />
           {/* <Route path="/service1" element={<Service1 />} /> */}
           <Route path="*" element={<ErrorPage />} />
           <Route path='/user/:activepage' element={<UserProfile/>} />

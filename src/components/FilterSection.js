@@ -16,7 +16,6 @@ const FilterSection = () => {
     });
 
     if (attr === "colors") {
-      // return (newVal = ["All", ...new Set([].concat(...newVal))]);
       newVal = newVal.flat();
     }
 
@@ -62,8 +61,6 @@ const FilterSection = () => {
           })}
         </div>
       </div>
-
-      
     </Wrapper>
   );
 };
