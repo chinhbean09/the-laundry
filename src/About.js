@@ -1,19 +1,14 @@
-import HeroSection from "./components/HeroSection";
-import { useProductContext } from "./context/productcontex";
+import Footer from "./components/Footer";
+import About from "./components/AboutUs";
 
-const About = () => {
-  const { myName } = useProductContext();
-
-  const data = {
-    name: "Chinh Do",
-  };
+const Vinh = () => {
 
   return (
     <>
-      {myName}
-      <HeroSection myData={data} />
+      <About/>
+      <Footer/>
     </>
   );
 };
 
-export default About;
+export default Vinh;

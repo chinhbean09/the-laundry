@@ -13,9 +13,9 @@ const HeroSection = ({ myData }) => {
             <p className="intro-data">Welcome to </p>
             <h1> { name }</h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-              atque temporibus veniam doloribus libero ad error omnis voluptates
-              animi! Suscipit sapiente.
+              We are experts in the laundry business, always up to date with the 
+              latest technology, cleaning methods, and solutions to deal with stains 
+              or delicate fabrics.
             </p>
             <NavLink>
               <Button>show now</Button>

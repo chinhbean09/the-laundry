@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { TbTruckDelivery } from "react-icons/tb";
-import { MdSecurity } from "react-icons/md";
+import { MdOutlineLocalLaundryService } from "react-icons/md";
 import { GiReceiveMoney } from "react-icons/gi";
 import { RiSecurePaymentLine } from "react-icons/ri";
 
@@ -12,21 +12,21 @@ const Services = () => {
           <div className="services-1">
             <div>
               <TbTruckDelivery className="icon" />
-              <h3>Super Fast and Free Delivery</h3>
+              <h3>Super Fast and Cheap Delivery</h3>
             </div>
           </div>
 
           <div className="services-2">
             <div className="services-colum-2">
               <div>
-                <MdSecurity className="icon" />
-                <h3>Non-contact Shipping</h3>
+                <MdOutlineLocalLaundryService className="icon" />
+                <h3>Modern Technology</h3>
               </div>
             </div>
             <div className="services-colum-2">
               <div>
                 <GiReceiveMoney className="icon" />
-                <h3>Money-back Guaranteed</h3>
+                <h3>Environmental friendliness</h3>
               </div>
             </div>
           </div>
@@ -34,7 +34,7 @@ const Services = () => {
           <div className="services-3">
             <div>
               <RiSecurePaymentLine className="icon" />
-              <h3>Super Secure Payment System</h3>
+              <h3>Super Safe Security System</h3>
             </div>
           </div>
         </div>

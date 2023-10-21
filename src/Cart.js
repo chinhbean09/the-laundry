@@ -1,60 +1,50 @@
 import styled from "styled-components";
 import { useCartContext } from "./context/cart_context";
-import { CartItem } from "./components/CartItem";
+import CartItem from "./components/CartItem";
 import { NavLink } from "react-router-dom";
 import { Button } from "./styles/Button";
 import FormatPrice from "./Helpers/FormatPrice";
 
-
 const Cart = () => {
-  const { cart, cleanCart, total_price, shipping_fee } = useCartContext();
-  // console.log(
-  //      "🚀 ~ file: Cart.js ~ line 6 ~ Cart ~ cart",
-  //      cart
-  //    );
+  const { cart, clearCart, total_price, shipping_fee } = useCartContext();
+  // console.log("🚀 ~ file: Cart.js ~ line 6 ~ Cart ~ cart", cart);
 
-  if (cart.leght === 0) {
-    return <div>
-      <EmptyDiv>
-        <h3>
-          No Cart In Item
-        </h3>
-      </EmptyDiv>
-    </div>
-  }
+  // if (cart.length === 0) {
+  //   return (
+  //     <EmptyDiv>
+  //       <h3>No Cart in Item </h3>
+  //     </EmptyDiv>
+  //   );
+  // }
 
-  return <Wrapper>
-    <div className="container">
-      <div className="cart_heading grid grid-five-column">
-        <p>ITEM</p>
-        <p className="cart_hide">PRICE</p>
-        <p>QUANTITY</p>
-        <p className="cart_hide">SUBTOTAL</p>
-        <p>REMOVE</p>
-      </div>
-      <hr />
-
-
-      <div className="cart-item">
-        {
-          cart.map((curElem) => {
-            return <CartItem key={curElem.id} {...curElem} />
+  return (
+    <Wrapper>
+      <div className="container">
+        <div className="cart_heading grid grid-five-column">
+          <p>Item</p>
+          <p className="cart-hide">Price</p>
+          <p>Quantity</p>
+          <p className="cart-hide">Subtotal</p>
+          <p>Remove</p>
+        </div>
+        <hr />
+        <div className="cart-item">
+          {cart.map((curElem) => {
+            return <CartItem key={curElem.id} {...curElem} />;
           })}
-      </div>
-      <div className="cart-two-button">
-        <NavLink to="/products">
-          <Button>
-            Continue Shopping
+        </div>
+        <hr />
+        <div className="cart-two-button">
+          <NavLink to="/products">
+            <Button> continue Shopping </Button>
+          </NavLink>
+          <Button className="btn btn-clear" onClick={clearCart}>
+            clear cart
           </Button>
-        </NavLink>
-        <Button className="btn btn-clear" onClick={cleanCart}>
-          Clear Cart
-        </Button>
-      </div>
+        </div>
 
-      {/* oder total amount  */}
-
-      <div className="order-total--amount">
+        {/* order total_amount */}
+        <div className="order-total--amount">
           <div className="order-total--subdata">
             <div>
               <p>subtotal:</p>
@@ -77,9 +67,9 @@ const Cart = () => {
             </div>
           </div>
         </div>
-
-    </div>
-  </Wrapper>;
+      </div>
+    </Wrapper>
+  );
 };
 
 const EmptyDiv = styled.div`
