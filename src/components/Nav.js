@@ -217,7 +217,7 @@ const Nav = () => {
               <Dropdown.Menu style={{ width: '200px', height: 'auto', fontSize: '18px'}}>
                 <Dropdown.Item href="/login">Login</Dropdown.Item>
                 <Dropdown.Item href="/signup">Signup</Dropdown.Item>
-                <Dropdown.Item href="/Accountsettings">Profile</Dropdown.Item>
+                <Dropdown.Item href="/user/accountsettings">Profile</Dropdown.Item>
                 <Dropdown.Item href="#">Logout</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>

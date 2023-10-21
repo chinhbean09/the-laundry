@@ -4,7 +4,7 @@ import Product from "./Product";
 import { useStoreContext } from "../context/storecontext";
 
 const GridView = ({ products }) => {
-  const { singleServiceStore} = useStoreContext();
+  // const { singleServiceStore} = useStoreContext();
 
   if (!Array.isArray(products)) {
     
@@ -14,11 +14,9 @@ const GridView = ({ products }) => {
       </div>
     );
   }
-
-    
-   console.log(
-    "~ file: grid.js", singleServiceStore
-  );
+  //  console.log(
+  //   "~ file: grid.js", singleServiceStore
+  // );
 
   return (
     <Wrapper className="section">

@@ -18,7 +18,7 @@ const initialState = {
   grid_view: true,
   isSingleLoading: false,
   singleStore : {},
-  singleServiceStore:{}
+  singleServiceStore:[]
 };
 
 const StoreProvider = ({ children }) => {

@@ -39,12 +39,15 @@ const SingleStore = () => {
   } = singleStore;
 
   const {
-    
-    storeId: alias2
-     
-
-
-    
+    id: ServiceId ,
+    storeId,
+    nameService,
+    imageBanner,
+    description: Servicedescription,
+    details,
+    materials,
+    cloth,
+    isStandard,  
 } = singleServiceStore;
 
 useEffect(() => {
