@@ -4,6 +4,10 @@ import styled from "styled-components";
 import { FiShoppingCart } from "react-icons/fi";
 import { CgMenu, CgClose } from "react-icons/cg";
 import Dropdown from "react-bootstrap/Dropdown";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+
 const Nav = () => {
   const [menuIcon, setMenuIcon] = useState();
 
@@ -203,21 +207,21 @@ const Nav = () => {
               <span className="cart-total--item"> 10 </span>
             </NavLink>
           </li>
-          
-            <li>
-            <Dropdown>
-              <Dropdown.Toggle variant="" id="dropdown-basic">
-                                        Menu
-                                    </Dropdown.Toggle>
 
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item href="/login">Login</Dropdown.Item>
-                                        <Dropdown.Item href="/signup">Signup</Dropdown.Item>
-                                        <Dropdown.Item href="/user/accountsettings">Profile</Dropdown.Item>
-                                        <Dropdown.Item href="#">Logout</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                    </li>
+          <li>
+            <Dropdown>
+              <Dropdown.Toggle variant="" id="dropdown-basic" style={{fontSize: '22px'}}>
+                Menu
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu style={{ width: '200px', height: 'auto', fontSize: '18px'}}>
+                <Dropdown.Item href="/login">Login</Dropdown.Item>
+                <Dropdown.Item href="/signup">Signup</Dropdown.Item>
+                <Dropdown.Item href="/Accountsettings">Profile</Dropdown.Item>
+                <Dropdown.Item href="#">Logout</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </li>
 
         </ul>
 
