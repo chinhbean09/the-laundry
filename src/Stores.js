@@ -3,7 +3,7 @@ import StoreFilterSection from "./components/StoreFilterSection";
 import StoreList from "./components/StoreList";
 import SortStore from "./components/SortStore";
 import {useFilterStoreContext} from "./context/storefilter_context"
-
+// import MultiSelect from "./MultiSelect";
 const Stores = () => {
   const {filter_stores} = useFilterStoreContext();
   console.log("~file: Stores.js ~ filter_stores",filter_stores);
@@ -12,6 +12,7 @@ const Stores = () => {
     <Wrapper>
       <div className="container grid grid-filter-column">
         <div>
+      {/* <MultiSelectAll /> */}
           <StoreFilterSection />
         </div>
         <section className="product-view--sort">
